@@ -1,0 +1,17 @@
+.env
+node_modules/
+.vscode/
+.cdsrc.json
+.mta/
+*.mtar
+dist/
+package-lock.json
+mta_archives/
+deployer/resources/
+Makefile*
+mta-*
+approuter/*/webapp/
+.eslintcache
+.history/
+.DS_STORE*
+uimodule/webapp/test/screenshots

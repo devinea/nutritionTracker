@@ -13,7 +13,7 @@
     "sqlite3": "^5.0.2"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds watch"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
