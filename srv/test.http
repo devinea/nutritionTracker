@@ -1,0 +1,28 @@
+POST http://localhost:4004/main/Meals
+Content-Type: application/json
+
+{
+    "ID": "650cc22b-06f8-4c67-9847-18131f259a77",
+    "name": "ThorstensEssen",
+    "dateEaten": "2021-06-15T00:00:00Z",
+    "ingredient": [{"ingredient_ID": "ab5a1fd9-f742-40ec-9582-a0604a7e2740"}],
+    "energy": 0,
+    "proteins": 0,
+    "carbs": 0,
+    "fats": 0,
+    "fibers": 0
+}
+
+###
+POST http://localhost:4004/main/Ingredients
+Content-Type: application/json
+
+{
+    "meal": [{"meal_ID": "650cc22b-06f8-4c67-9847-18131f259a77"}],
+    "name": "Apple",
+    "energy": 10,
+    "protein": 5,
+    "carbs": 2,
+    "fats": 4,
+    "fiber": 15
+}
