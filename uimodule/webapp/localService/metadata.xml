@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="MainService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="IngredientInMeal" EntityType="MainService.IngredientInMeal">
+                    <NavigationPropertyBinding Path="meal" Target="Meals"/>
+                    <NavigationPropertyBinding Path="ingredient" Target="Ingredients"/>
+                </EntitySet>
+                <EntitySet Name="Ingredients" EntityType="MainService.Ingredients">
+                    <NavigationPropertyBinding Path="meal" Target="IngredientInMeal"/>
+                </EntitySet>
+                <EntitySet Name="Meals" EntityType="MainService.Meals">
+                    <NavigationPropertyBinding Path="ingredient" Target="IngredientInMeal"/>
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="IngredientInMeal">
+                <Key>
+                    <PropertyRef Name="meal_ID"/>
+                    <PropertyRef Name="ingredient_ID"/>
+                </Key>
+                <NavigationProperty Name="meal" Type="MainService.Meals" Partner="ingredient">
+                    <OnDelete Action="Cascade"/>
+                    <ReferentialConstraint Property="meal_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="meal_ID" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="ingredient" Type="MainService.Ingredients" Partner="meal">
+                    <OnDelete Action="Cascade"/>
+                    <ReferentialConstraint Property="ingredient_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="ingredient_ID" Type="Edm.Guid" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="Ingredients">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <NavigationProperty Name="meal" Type="Collection(MainService.IngredientInMeal)" Partner="ingredient">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="energy" Type="Edm.Int32"/>
+                <Property Name="protein" Type="Edm.Int32"/>
+                <Property Name="carbs" Type="Edm.Int32"/>
+                <Property Name="fats" Type="Edm.Int32"/>
+                <Property Name="fiber" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="Meals">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="dateEaten" Type="Edm.DateTimeOffset"/>
+                <Property Name="energy" Type="Edm.Int32"/>
+                <Property Name="proteins" Type="Edm.Int32"/>
+                <Property Name="carbs" Type="Edm.Int32"/>
+                <Property Name="fats" Type="Edm.Int32"/>
+                <Property Name="fibers" Type="Edm.Int32"/>
+                <NavigationProperty Name="ingredient" Type="Collection(MainService.IngredientInMeal)" Partner="meal">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <Annotations Target="MainService.Ingredients/createdAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="MainService.Ingredients/createdBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="MainService.Ingredients/modifiedAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="MainService.Ingredients/modifiedBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+            <Annotations Target="MainService.Meals/createdAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Created On"/>
+            </Annotations>
+            <Annotations Target="MainService.Meals/createdBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Created By"/>
+            </Annotations>
+            <Annotations Target="MainService.Meals/modifiedAt">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Common.Label" String="Changed On"/>
+            </Annotations>
+            <Annotations Target="MainService.Meals/modifiedBy">
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Common.Label" String="Changed By"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
