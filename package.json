@@ -10,6 +10,7 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.90.1",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
@@ -38,6 +39,24 @@
     "rules": {
       "no-console": "off",
       "require-atomic-updates": "off"
+    }
+  },
+  "sapux": [
+    "app/tm.nutritracker",
+    "app/project1",
+    "app/listreport",
+    "app/nutritracker",
+    "app/project1"
+  ],
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "model": "*",
+        "credentials": {
+          "database": "db/my.db"
+        }
+      }
     }
   }
 }
