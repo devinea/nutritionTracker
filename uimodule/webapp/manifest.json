@@ -61,7 +61,8 @@
             "minUI5Version": "1.76.0",
             "libs": {
                 "sap.ui.core": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.f": {}
             }
         },
         "models": {
@@ -85,12 +86,17 @@
                 {
                     "pattern": ":?query:",
                     "name": "MealsList",
-                    "target": "MealsList"
+                    "target": [
+                        "MealsList"
+                    ]
                 },
                 {
                     "pattern": "Meals({key}):?query:",
                     "name": "MealsObjectPage",
-                    "target": "MealsObjectPage"
+                    "target": [
+                        "MealsList",
+                        "MealsObjectPage"
+                    ]
                 }
             ],
             "targets": {
@@ -110,7 +116,9 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "controlAggregation": "beginColumnPages",
+                    "contextPattern": ""
                 },
                 "MealsObjectPage": {
                     "type": "Component",
@@ -120,13 +128,28 @@
                         "settings": {
                             "entitySet": "Meals"
                         }
-                    }
+                    },
+                    "controlAggregation": "midColumnPages",
+                    "contextPattern": "/Meals({key})"
                 }
+            },
+            "config": {
+                "flexibleColumnLayout": {
+                    "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+                },
+                "routerClass": "sap.f.routing.Router"
             }
         },
         "contentDensities": {
             "compact": true,
             "cozy": true
+        },
+        "rootView": {
+            "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+            "type": "XML",
+            "async": true,
+            "id": "appRootView"
         }
     },
     "sap.platform.abap": {
