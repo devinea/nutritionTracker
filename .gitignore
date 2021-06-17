@@ -2,6 +2,7 @@
 node_modules/
 .vscode/
 .cdsrc.json
+*.db
 .mta/
 *.mtar
 dist/
