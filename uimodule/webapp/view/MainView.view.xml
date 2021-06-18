@@ -1,0 +1,22 @@
+ <mvc:View controllerName="tm.nutriTracker.myUI5App.controller.MainView"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <App id="idAppControl" >
+    <pages>
+      <Page title="{i18n>title}">
+        <content>
+          <List
+            headerText="Meals"
+            items="{
+              path: '/Meals'
+            }" >
+            <StandardListItem
+              title="{ame}"
+              description="{dateEaten}"/>
+          </List>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>
