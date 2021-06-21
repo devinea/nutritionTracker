@@ -26,3 +26,4 @@ server:
       mountPath: /odataService
       configuration:
         baseUri: "http://localhost:4004/main/"
+        removeETag: true
