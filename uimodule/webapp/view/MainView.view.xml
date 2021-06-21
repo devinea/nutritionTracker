@@ -12,7 +12,7 @@
               path: '/Meals'
             }" >
             <StandardListItem
-              title="{ame}"
+              title="{name}"
               description="{dateEaten}"/>
           </List>
         </content>
