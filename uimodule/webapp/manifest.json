@@ -63,6 +63,10 @@
           "synchronizationMode": "None"
         }
       },
+      "appView": {
+        "type": "sap.ui.model.json.JSONModel",
+        "defaultBindingMode": "TwoWay"
+      },
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
@@ -88,16 +92,27 @@
       "routes": [
         {
           "name": "RouteMainView",
-          "pattern": "RouteMainView",
+          "pattern": "",
           "target": ["TargetMainView"]
+        },
+        {
+          "name": "NutriDetailView",
+          "pattern": "NutriDetailView/{ID}",
+          "target": ["TargetMainView", "NutriDetailView"]
         }
       ],
       "targets": {
         "TargetMainView": {
           "viewType": "XML",
           "viewLevel": 1,
-          "viewId": "idAppControl",
-          "viewName": "MainView"
+          "viewName": "MainView",
+					"controlAggregation": "beginColumnPages"
+        },
+        "NutriDetailView": {
+          "viewType": "XML",
+          "viewLevel": 2,
+          "viewName": "DetailView",
+          "controlAggregation": "midColumnPages"
         }
       }
     }

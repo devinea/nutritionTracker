@@ -1,0 +1,20 @@
+ <mvc:View controllerName="tm.nutriTracker.myUI5App.controller.DetailView"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+    <Page title="{i18n>title}">
+        <VBox id="details">
+            <!-- binding ="
+                path: '/Meals'
+                parameters: {
+                    expand: 'ingredient'
+                }"> -->
+            <Text text="{name}" />
+            <Text text="{energy}" />
+            <Text text="{protein}" />
+            <Text text="{carbs}" />
+            <Text text="{fats}" />
+            <Text text="{fibers}" />
+        </VBox>
+    </Page>
+</mvc:View>
