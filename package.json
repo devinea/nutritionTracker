@@ -30,8 +30,9 @@
     ]
   },
   "scripts": {
+    "start": "npm-run-all --parallel start-ui5 start-cap",
     "start-cap": "cds watch",
-    "start": "ui5 serve --config=uimodule/ui5.yaml  --open index.html"
+    "start-ui5": "ui5 serve --config=uimodule/ui5.yaml  --open index.html"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
