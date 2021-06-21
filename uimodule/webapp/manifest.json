@@ -38,7 +38,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "rootView": {
-      "viewName": "tm.nutriTracker.myUI5App.view.MainView",
+      "viewName": "tm.nutriTracker.myUI5App.view.App",
       "type": "XML",
       "async": true,
       "id": "idAppControl"
@@ -48,6 +48,7 @@
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
+        "sap.f": {},
         "sap.ui.layout": {}
       }
     },
@@ -78,11 +79,10 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
+        "routerClass": "sap.f.routing.Router",
         "viewType": "XML",
         "viewPath": "tm.nutriTracker.myUI5App.view",
-        "controlId": "idAppControl",
-        "controlAggregation": "pages",
+        "controlId": "flexColumnLayout",
         "async": true
       },
       "routes": [
