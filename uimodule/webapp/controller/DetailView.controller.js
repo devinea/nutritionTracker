@@ -11,9 +11,11 @@ function (Controller) {
         },
 
         _onRouteMatched(oEvent){
+            this.getView().bindElement({path:`/Meals(${oEvent.getParameters().arguments.ID})`})
+            
             //sets the binding context with a double expand => /Meals(...)?$expand=ingredient($expand=ingredient)
-            this.getView().byId('details').bindElement(
-                {path:"/Meals(650cc22b-06f8-4c67-9847-18131f259a77)", 
+            this.getView().byId('ingredientsList').bindElement(
+                {path:`/Meals(${oEvent.getParameters().arguments.ID})`, 
                     parameters: {
                         $expand: {"ingredient": {'$expand': 'ingredient'}}
                     }

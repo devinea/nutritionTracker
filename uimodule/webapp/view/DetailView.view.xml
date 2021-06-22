@@ -3,18 +3,25 @@
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
     <Page title="{i18n>title}">
-        <VBox id="details">
-            <!-- binding ="
-                path: '/Meals'
-                parameters: {
-                    expand: 'ingredient'
-                }"> -->
+        <VBox id="mealDetails">
             <Text text="{name}" />
             <Text text="{energy}" />
-            <Text text="{protein}" />
+            <Text text="{proteins}" />
             <Text text="{carbs}" />
             <Text text="{fats}" />
             <Text text="{fibers}" />
         </VBox>
+        
+        <!-- Double expand, the first is done in the path and the second in the StandardListItem-->
+        <List id="ingredientsList"
+            headerText="Ingredients"
+            items="{
+                path:'ingredient'
+            }" >
+
+        <StandardListItem
+            title="{ingredient/name}"
+            description="{ingredientenergy}"/>
+        </List>
     </Page>
 </mvc:View>
