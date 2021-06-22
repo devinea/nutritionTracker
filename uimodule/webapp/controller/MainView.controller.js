@@ -9,6 +9,16 @@ sap.ui.define(["tm/nutriTracker/myUI5App/controller/BaseController"], function (
         displayNutriDetails (oEvent) {
             this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded")
             this.getRouter().navTo('NutriDetailView', {ID: oEvent.getSource().getBindingContext().getObject().ID})
+        },
+
+        addMeal(){
+            let oContext = this.getView().byId('mealsList').getBinding('items').create({})
+            oContext.created().then(
+                () => {
+                    this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded")
+                    this.getRouter().navTo('NutriDetailView', {ID: oContext.getObject().ID})
+                }
+            )
         }
     });
 });

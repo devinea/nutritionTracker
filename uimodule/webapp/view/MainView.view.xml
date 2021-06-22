@@ -5,10 +5,20 @@
       <Page title="{i18n>title}">
         <content>
           <List
+            id="mealsList"
             headerText="Meals"
             items="{
               path: '/Meals'
             }" >
+            <headerToolbar>
+              <OverflowToolbar>
+                <Title text="Meals" level="H2" />
+                <ToolbarSpacer />
+                <Button
+                  icon="sap-icon://add"
+                  press="addMeal" />
+              </OverflowToolbar>
+            </headerToolbar>
             <StandardListItem
               title="{name}"
               description="{dateEaten}"
