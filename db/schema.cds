@@ -14,11 +14,10 @@ entity Meals : managed, cuid {
 }
 
 entity Ingredients: managed, cuid {
-    //meals:          Composition of many Meal on meals.ID;
     meal:           Composition of  many IngredientInMeal on meal.ingredient=$self;
     name:           String;
     energy:         Integer;
-    protein:        Integer;
+    proteins:        Integer;
     carbs:          Integer;
     fats:           Integer;
     fiber:          Integer;

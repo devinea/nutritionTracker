@@ -15,7 +15,7 @@ Content-Type: application/json
     "meal": [{"meal_ID": "650cc22b-06f8-4c67-9847-18131f259a77"}],
     "name": "Apple",
     "energy": 10,
-    "protein": 5,
+    "proteins": 5,
     "carbs": 2,
     "fats": 4,
     "fiber": 15
