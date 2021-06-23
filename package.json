@@ -14,7 +14,7 @@
     "sqlite3": "^5.0.2"
   },
   "scripts": {
-    "start": "cds watch"
+    "start": "cds watch --in-memory"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -42,11 +42,6 @@
     }
   },
   "sapux": [
-    "app/tm.nutritracker",
-    "app/project1",
-    "app/listreport",
-    "app/nutritracker",
-    "app/project1",
     "app/uimodule"
   ],
   "cds": {

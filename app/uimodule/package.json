@@ -2,7 +2,6 @@
 	"name": "uimodule",
 	"version": "0.0.1",
 	"private": true,
-	"sapux": true,
 	"description": "A Fiori application.",
 	"keywords": [
 		"ui5",
