@@ -1,2 +1,2 @@
-ID;name;dateEaten;ID;createdAt;createdBy;modifiedAt;modifiedBy;
-1;meal1;2021-06-23T10:35:15.337Z;1;2021-06-23T10:35:15.337Z;sdsad;2021-06-23T10:35:15.337Z;aaaa;
+ID;name;dateEaten;createdAt;createdBy;modifiedAt;modifiedBy;
+efec3e9f-ceea-4d17-80a7-50073f71c325;meal1;2021-06-23T10:35:15.337Z;2021-06-23T10:35:15.337Z;sdsad;2021-06-23T10:35:15.337Z;aaaa;

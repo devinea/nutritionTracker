@@ -42,7 +42,8 @@
     }
   },
   "sapux": [
-    "app/uimodule"
+    "app/uimodule",
+    "app/uimodule_cap"
   ],
   "cds": {
     "requires": {
