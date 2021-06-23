@@ -46,7 +46,8 @@
     "app/project1",
     "app/listreport",
     "app/nutritracker",
-    "app/project1"
+    "app/project1",
+    "app/uimodule"
   ],
   "cds": {
     "requires": {
